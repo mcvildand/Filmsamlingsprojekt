@@ -1,3 +1,4 @@
+/*
 import java.util.ArrayList;
 
 public class ArrayListDemo {
@@ -35,13 +36,30 @@ public class ArrayListDemo {
         int frugtlængde = fruitsTWO.get(0).length(); // længden af ordet (String) på index 0
         System.out.println(frugtlængde);
 
+        for(int i=0; i<fruits.size(); i++) {
+            System.out.println(fruits.get(i));
+        }
+
+        for(String ord : fruits) {
+            System.out.println(ord.toLowerCase());
+        }
+
 
         ////
-        ArrayList<Movie> filmArrayList = new ArrayList<Movie>(); // movie array liste
-        Movie movieOne = new Movie("Avatar", "James Cameron", 2001, true, 120, "Animation");
-        filmArrayList.add();
+        Movie movie1 = new Movie("Avatar", "James Cameron", 2001, true, 120, "Animation");
+        Movie[] movies = new Movie[5];
+        movies[0] = movie1;
+
+        ArrayList<Movie> moviesArrayList = new ArrayList<Movie>(); // movie array liste
+
+        moviesArrayList.add(1, movie1);
 
 
+        // A: if
+        // B loop - brug tallet 2 som sentinel (se gammel opgave)
+        //Userstory 2 kan laves uden at lave om på det fra tirsdag (alm array)
+
+        //Userstory 3:
 
 
 
@@ -49,3 +67,6 @@ public class ArrayListDemo {
     }
 
 }
+
+
+ */
