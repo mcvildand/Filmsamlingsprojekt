@@ -53,6 +53,11 @@ public class Main {
 
 
 
+
+
+        /////////////// NOTES ///////////////////
+
+
         /*
         System.out.println("Velkommen til filmsamlingen");
         System.out.println("Opret en ny film: tast 1");
