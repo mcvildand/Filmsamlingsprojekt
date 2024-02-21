@@ -20,8 +20,11 @@ public class Main {
         boolean userIsInColor = input.nextBoolean();
         System.out.println("Skriv længde i minutter");
         int userLengthInMinutes = input.nextInt();
+        input.nextLine();
         System.out.println("Skriv genre");
-        String userGenre = input.next();
+        String userGenre = input.nextLine();
+        // scanner bug: efter int, så virker nextLine ikke, brug next()
+        // eller indsæt fx input.nextLine() ovenover (linie 23)
 
 
         //Movie newMovie = new Movie(userTitle, userDirector, userYearCreated, userIsInColor, userLengthInMinutes,userGenre);
