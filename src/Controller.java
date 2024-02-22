@@ -8,6 +8,12 @@ public class Controller {
                          boolean isInColor, int lengthInMinutes, String genre) {
         yourMovie.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
     }
+
+    // returnerer
+    public String showMovie() {
+        return yourMovie.toString();
+    }
+
 }
 
 

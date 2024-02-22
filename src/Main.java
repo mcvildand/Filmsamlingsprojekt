@@ -10,18 +10,30 @@ public class Main {
         //System.out.println(myMovie);
 
         int userInput = 0; // så den går direkte ind i while fra start
-        int SENTINEL = 2;
+        int SENTINEL = 4; // kunne også være final int SENTINEL
+
+        Controller controller = new Controller();
+
+       // boolean isInColor = false; // = en sort/hvid film, false til spm om den er i farve
+
+        // ja/nej svar fra brugeren istedet for true/false
+        //System.out.println("Er filmen i farve, skriv ja, ellers skriv nej");
+
+
 
         while (userInput != SENTINEL) {
             System.out.println("Velkommen til filmsamlingen");
             System.out.println("Opret en ny film: tast 1");
-            System.out.println("Afslut: tast 2");
+            System.out.println("Vis filmliste: tast 2");
+            System.out.println("Søg i filmliste: tast 3");
+            System.out.println("Afslut: tast 4");
 
             userInput = input.nextInt();
 
             if (userInput == 1) {
                 //MovieCollection yourMovie = new MovieCollection();
-                Controller controller = new Controller();
+                // Controlleren skal laves UDENFOR whil-loopet!!!
+                //Controller controller = new Controller();
 
                 System.out.println("Skriv titel");
                 String userTitle = input.next();
@@ -30,8 +42,18 @@ public class Main {
                 String userDirector = input.nextLine();
                 System.out.println("Skriv årstal");
                 int userYearCreated = input.nextInt();
-                System.out.println("Skriv true/false om der er farve");
-                boolean userIsInColor = input.nextBoolean();
+                //System.out.println("Skriv true/false om der er farve");
+                //boolean userIsInColor = input.nextBoolean();
+
+                boolean userIsInColor = false;
+                System.out.println("Er filmen i farve, skriv ja, ellers skriv nej");
+                String erIFarve = input.next();
+                erIFarve = erIFarve.toLowerCase();
+
+                if (erIFarve.equals("ja")) {
+                    userIsInColor = true;
+                }
+
                 System.out.println("Skriv længde i minutter");
                 int userLengthInMinutes = input.nextInt();
                 input.nextLine();
@@ -42,11 +64,17 @@ public class Main {
                 controller.addMovie(userTitle, userDirector, userYearCreated, userIsInColor, userLengthInMinutes, userGenre);
                 //System.out.println("Info om din nye film: " + yourMovie.getMovie());
                 //System.out.println(" ");
-                System.out.println("Info om din nye film: " + userTitle + ", " + userDirector + ", " + userYearCreated + ", "
-                + userIsInColor + ", " + userLengthInMinutes + ", " + userGenre);
-                System.out.println(" ");
+                //System.out.println("Info om din nye film: " + userTitle + ", " + userDirector + ", " + userYearCreated + ", "
+                //+ userIsInColor + ", " + userLengthInMinutes + ", " + userGenre);
 
             } else if (userInput == 2 ){
+                System.out.println(" ");
+                System.out.println("Du har oprettet følgende film:");
+                System.out.println(controller.showMovie());
+                //System.out.println(" ");
+            } else if (userInput == 3) {
+                System.out.println("Skriv navn på film du vil søge efter");
+            } else if (userInput == 4) {
                 System.out.println("Filmsamlingen afsluttes");
             }
         }

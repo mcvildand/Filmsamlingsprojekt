@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+// information expert
+// Creator
+
 public class MovieCollection {
 
     ////////// ATTRIBUTES //////////
@@ -18,13 +21,20 @@ public class MovieCollection {
         count++;
     }
 
+    public void searchMovie() {
 
+    }
 
-
-
-
-
-
+    // loop over film
+    @Override
+    public String toString() {
+        //movieArr.forEach(movie -> System.out.println(movie));
+        String result = "";
+        for (Movie movie : movieArr) {
+            System.out.print(movie + " ");
+        }
+        return result;
+    }
 
     ////////////////////// NOTES /////////////////
 

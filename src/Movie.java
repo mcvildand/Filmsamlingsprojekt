@@ -51,6 +51,15 @@ public class Movie {
 
     @Override
     public String toString() {
-        return title + ", " + director + ", " + yearCreated + ", " + isInColor + ", " + lengthInMinutes + ", " + genre;
+        String isInColorString;
+        if (isInColor) {
+            isInColorString = "ja";
+        } else {
+            isInColorString = "nej";
+        }
+        // isInColor erstattes med isInColorString
+        return "Title: " + title + ", \n" + "Director: " + director + ", \n" + "Årstal: " + yearCreated +
+                ", \n" + "Filmen er i farve: " + isInColorString + ", \n" + "Længden af film i mminutter: " +
+                lengthInMinutes + ", \n" + "Genre: " + genre + "\n\n";
     }
 }
