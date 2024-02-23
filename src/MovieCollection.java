@@ -21,9 +21,34 @@ public class MovieCollection {
         count++;
     }
 
-    public void searchMovie() {
+    public String searchMovie(String word) {
 
+        for (Movie movie : movieArr) {
+            boolean result = movie.getTitle().contains(word);
+
+            if (result) {
+                return movie.toString();
+            }
+        }
+
+        return "Søgningen gav intet resultat\n";
     }
+
+    /*
+    public String searchMovie(String word) {
+
+        for (Movie movie : movieArr) {
+            boolean result = movie.getTitle().contains(word);
+
+            if (result) {
+                return movie.toString();
+            }
+        }
+
+        return "Søgningen gav intet resultat\n";
+    }
+
+     */
 
     // loop over film
     @Override
@@ -31,10 +56,35 @@ public class MovieCollection {
         //movieArr.forEach(movie -> System.out.println(movie));
         String result = "";
         for (Movie movie : movieArr) {
-            System.out.print(movie + " ");
+            //System.out.print(movie + " ");
+            System.out.print(movie);
         }
         return result;
     }
+
+    /*
+    Eksempel fra underviser
+    @Override
+    public String toString() {
+        String allFilms = "";
+        for (Movie m : movieArr) {
+            //System.out.print(movie + " ");
+            allFilms += m.toString() + "\n";
+            System.out.print(movie);
+        }
+        return allFilm;
+    }
+
+     */
+
+
+
+
+
+
+
+
+
 
     ////////////////////// NOTES /////////////////
 

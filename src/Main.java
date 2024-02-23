@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
+        //input.useDelimiter("\n");
 
         //Movie myMovie = new Movie("Avatar", "James Cameron", 2001, true, 120, "Animation");
         //System.out.println(myMovie);
@@ -27,6 +28,8 @@ public class Main {
             System.out.println("Vis filmliste: tast 2");
             System.out.println("Søg i filmliste: tast 3");
             System.out.println("Afslut: tast 4");
+            //System.out.println(" ");
+
 
             userInput = input.nextInt();
 
@@ -37,9 +40,11 @@ public class Main {
 
                 System.out.println("Skriv titel");
                 String userTitle = input.next();
-                input.nextLine();
+                input.nextLine(); // scanner bug fix
+
                 System.out.println("Skriv director");
                 String userDirector = input.nextLine();
+
                 System.out.println("Skriv årstal");
                 int userYearCreated = input.nextInt();
                 //System.out.println("Skriv true/false om der er farve");
@@ -49,14 +54,14 @@ public class Main {
                 System.out.println("Er filmen i farve, skriv ja, ellers skriv nej");
                 String erIFarve = input.next();
                 erIFarve = erIFarve.toLowerCase();
-
-                if (erIFarve.equals("ja")) {
+                if (erIFarve.equals("ja")) { //.equals når man arbejder med String
                     userIsInColor = true;
                 }
 
                 System.out.println("Skriv længde i minutter");
                 int userLengthInMinutes = input.nextInt();
-                input.nextLine();
+                input.nextLine(); // scanner bug fix
+
                 System.out.println("Skriv genre");
                 String userGenre = input.nextLine();
 
@@ -67,13 +72,33 @@ public class Main {
                 //System.out.println("Info om din nye film: " + userTitle + ", " + userDirector + ", " + userYearCreated + ", "
                 //+ userIsInColor + ", " + userLengthInMinutes + ", " + userGenre);
 
+                System.out.println("Filmen blev tilføjet din samling");
+                System.out.println(" ");
+
             } else if (userInput == 2 ){
                 System.out.println(" ");
                 System.out.println("Du har oprettet følgende film:");
                 System.out.println(controller.showMovie());
                 //System.out.println(" ");
+
             } else if (userInput == 3) {
                 System.out.println("Skriv navn på film du vil søge efter");
+                String userSearchWord = input.next();
+                System.out.println(controller.showSearch(userSearchWord));
+
+                /*
+                System.out.println("Skriv navn på film du vil søge efter");
+                String userSearchWord = input.next();
+                String result = controller.showSearch(userSearchWord);
+                if (userSearchWord.equals(result)) {
+                    System.out.println(controller.showSearch(userSearchWord));
+                }
+                System.out.println("Den film du søgte efter findes ikke i din filmsamling");
+
+
+                 */
+
+
             } else if (userInput == 4) {
                 System.out.println("Filmsamlingen afsluttes");
             }

@@ -14,6 +14,12 @@ public class Controller {
         return yourMovie.toString();
     }
 
+    public String showSearch(String word) {
+        return yourMovie.searchMovie(word);
+    }
+
+
+
 }
 
 
