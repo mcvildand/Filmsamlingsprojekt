@@ -6,21 +6,40 @@ import java.util.ArrayList;
 public class MovieCollection {
 
     ////////// ATTRIBUTES //////////
-    ArrayList<Movie> movieArr = new ArrayList<Movie>();
-    int count = 0;
+    ArrayList<Movie> movieArr;
+
 
     ////////// CONSTRUCTOR //////////
     public MovieCollection () {
+        movieArr = new ArrayList<Movie>();
     }
 
     ////////// METODE //////////
     public void addMovie(String title, String director, int yearCreated,
                          boolean isInColor, int lengthInMinutes, String genre) {
         Movie movie = new Movie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
-        movieArr.add(count, movie);
-        count++;
+        movieArr.add(movie);
     }
 
+
+    public String searchMovie(String word) {
+
+        String film = "";
+        for (Movie movie : movieArr) {
+            if (movie.getTitle().contains(word)) {
+
+                film += movie.toString();
+
+            } else {
+                return "Søgningen gav intet resultat\n";
+            }
+
+        }
+        return film;
+    }
+
+
+    /*
     public String searchMovie(String word) {
 
         for (Movie movie : movieArr) {
@@ -34,17 +53,13 @@ public class MovieCollection {
         return "Søgningen gav intet resultat\n";
     }
 
-    /*
-    public String searchMovie(String word) {
-
+    Underviserens version:
+     public String searchMovie(String word) {
         for (Movie movie : movieArr) {
-            boolean result = movie.getTitle().contains(word);
-
-            if (result) {
+            if (movie.getTitle().contains(word)) {
                 return movie.toString();
             }
         }
-
         return "Søgningen gav intet resultat\n";
     }
 

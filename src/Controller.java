@@ -1,6 +1,10 @@
 public class Controller {
 
-    MovieCollection yourMovie = new MovieCollection();
+    MovieCollection yourMovie;
+
+    public Controller() {
+        yourMovie = new MovieCollection();
+    }
 
     ////////// METODE //////////
     // Metode der kalder MovieCollections addMovie-metode
