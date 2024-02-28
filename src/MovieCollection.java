@@ -21,25 +21,35 @@ public class MovieCollection {
         movieArr.add(movie);
     }
 
+    ////////// METODE //////////
+    // Svarende til undervisers getMovieCollectionList
+    public ArrayList<Movie> getMovieArr() {
+        return movieArr;
+    }
 
+    ////////// METODE //////////
     public String searchMovie(String word) {
 
         String film = "";
         for (Movie movie : movieArr) {
-            if (movie.getTitle().contains(word)) {
-
+            if (movie.getTitle().toLowerCase().contains(word.toLowerCase())) {
                 film += movie.toString();
-
-            } else {
-                return "Søgningen gav intet resultat\n";
+            //} else {
+                //return "Søgningen gav intet resultat\n";
             }
-
         }
+
+        if (!(film.length() > 0)) {
+            return "Søgningen gav intet resultat\\n";
+        }
+
         return film;
     }
 
 
     /*
+    ///// Metoden fra userstory 5
+    //// Hvor kun første match vises
     public String searchMovie(String word) {
 
         for (Movie movie : movieArr) {
